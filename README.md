@@ -1,89 +1,101 @@
-# Walmart Inventory Optimization & Sales Forecasting (Power BI)
+🛒 Walmart Inventory Optimization Dashboard (Power BI)
+📌 Project Overview
 
-This repository contains a **Power BI analytics project** that identifies inventory inefficiencies and performance gaps across 45 retail stores. The dashboard helps business users and decision makers understand inventory-to-sales alignment, cost drivers, and demand planning risks in a retail supply chain context.
+Designed and developed a Power BI dashboard to analyze multi-store sales, holding costs, safety stock levels, and macroeconomic indicators using a structured star schema model.
 
----
+The solution enables store-level performance analysis and inventory efficiency monitoring.
 
-## 📌 Business Problem
+🏗 Data Modeling
 
-Retail businesses struggle to balance inventory levels with actual demand. Excess inventory increases **holding costs and cash tied up**, while inadequate stock leads to **missed sales opportunities**. Walmart’s operations require better insights into:
+Implemented a star schema architecture:
 
-- Inventory cost relative to sales performance
-- Store-level operational inefficiency
-- Safety stock effectiveness
-- Cost trends under inflationary pressures
+Fact Table
 
-This dashboard answers key strategic questions to support **data-driven inventory optimization**.
+Weekly Sales
 
----
+Holding Cost
 
-## 🎯 What This Dashboard Solves
+Safety Stock
 
-This solution enables Walmart (or similar retail businesses) to:
+Inventory Cost
 
-1. Detect **inefficient inventory investment** relative to sales
-2. Identify **underperforming stores** with high cost burden
-3. Highlight safety stock levels that are misaligned with demand
-4. Evaluate how **holding costs trend against sales over time**
-5. Provide business insights that guide **rebalancing and forecasting strategies**
+Dimension Tables
 
----
+Dim_Store
 
-## 📊 Dashboard Features
+Dim_Date
 
-The Power BI report includes:
+Department
 
-### 🔑 KPIs
-- **Total Sales**
-- **Total Holding Cost**
-- **Inventory-to-Sales Ratio**
-- **Lowest Performing Store**
+Relationships
 
-### 📈 Trend & Comparison Visuals
-- **Sales vs. Holding Cost Over Time**
-- **Inventory Cost Distribution by Store**
-- **Weekly Sales Performance by Store**
+One-to-many (Dimension → Fact)
 
-### 🔍 Diagnostic Analysis
-- **Safety Stock vs. Weekly Sales Scatter**
-- **Department-level inventory insights**
+Single-direction filtering
 
----
+Optimized model to avoid circular dependencies
 
-## 📌 Key Insights (Examples)
+📐 DAX Measures
+Total Sales =
+SUM(sales_final[Weekly_Sales])
 
-- Inventory costs have been increasing faster than sales growth, indicating capital inefficiency.
-- A small group of stores contributes disproportionately to total holding costs.
-- High safety stock levels do not always result in proportionately high weekly sales, suggesting forecasting error.
-- Sales patterns under CPI inflation indicate shifts in demand that require adaptive planning.
+Total Holding Cost =
+SUM(sales_final[Holding_Cost])
 
----
+Inventory to Sales % =
+DIVIDE([Total Holding Cost], [Total Sales])
 
-## 🛠 Tools & Techniques Used
+Avg Weekly Sales =
+AVERAGE(sales_final[Weekly_Sales])
 
-| Tools / Skills | Description |
-| -------------- | ----------- |
-| **Power BI Desktop** | Report development & visualization |
-| **DAX** | Custom measures, ranking, conditional metrics |
-| **Dimensional Modeling** | Star schema design with fact & dimension tables |
-| **Business Analysis** | Interpreting performance & risk for inventory |
+Lowest Performing Store =
+VAR StoreTable =
+    ADDCOLUMNS(
+        VALUES(Dim_Store[Store]),
+        "StoreSales", [Total Sales]
+    )
+VAR BottomStore =
+    TOPN(1, StoreTable, [StoreSales], ASC)
+RETURN
+    MAXX(BottomStore, Dim_Store[Store])
+📊 Dashboard Components
 
----
+KPI Cards (Dynamic Measures)
 
-## 📁 Repository Structure
-walmart-inventory-optimization
-│
-├── README.md
-├── Walmart_Inventory_Dashboard.pbix ← Power BI source file
-└── Screenshots/
-└── dashboard_overview.png
+Time-Series Trend Analysis (Sales vs Holding Cost)
 
-## 📈 Business Value
+Store-Level Performance Comparison (Bar Charts)
 
-This dashboard helps teams:
+Scatter Plot (Safety Stock vs Weekly Sales)
 
-- Reduce excess inventory costs
-- Improve forecasting accuracy
-- Prioritize operational improvements
-- Make decisions supported by data, not intuition
+CPI vs Sales Trend Analysis
 
+Interactive Slicers (Date, Store, Department)
+
+⚙️ Technical Highlights
+
+Dynamic ranking logic using TOPN
+
+Context-aware measures with CALCULATE and ADDCOLUMNS
+
+Efficient filter context handling
+
+Clean visual hierarchy and executive layout
+
+Optimized performance with proper relationship modeling
+
+🧠 Analytical Capabilities
+
+Store efficiency identification
+
+Cost-to-revenue ratio monitoring
+
+Safety stock demand alignment evaluation
+
+Time-based performance comparison
+
+Inflation impact assessment
+
+🚀 Business Outcome
+
+The solution enables proactive inventory management by identifying misaligned stock allocation and store-level inefficiencies, supporting data-driven cost optimization and performance monitoring.
