@@ -1,5 +1,4 @@
 🛒 Walmart Inventory Optimization Dashboard (Power BI)
-📌 Project Overview
 
 Designed and developed a Power BI dashboard to analyze multi-store sales, holding costs, safety stock levels, and macroeconomic indicators using a structured star schema model.
 
@@ -99,3 +98,4 @@ Inflation impact assessment
 🚀 Business Outcome
 
 The solution enables proactive inventory management by identifying misaligned stock allocation and store-level inefficiencies, supporting data-driven cost optimization and performance monitoring.
+
