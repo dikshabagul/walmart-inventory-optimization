@@ -1,41 +1,89 @@
 # Walmart Inventory Optimization & Sales Forecasting (Power BI)
 
-This repository contains a Power BI project that analyzes Walmart’s inventory efficiency, sales performance, and forecast behavior across 45 stores. The goal is to identify inefficiencies in inventory management and highlight opportunities to reduce holding costs while improving sales alignment.
+This repository contains a **Power BI analytics project** that identifies inventory inefficiencies and performance gaps across 45 retail stores. The dashboard helps business users and decision makers understand inventory-to-sales alignment, cost drivers, and demand planning risks in a retail supply chain context.
 
 ---
 
 ## 📌 Business Problem
 
-Retailers often struggle with balancing inventory levels against actual demand.  
-Excess inventory increases holding costs, ties up working capital, and can lead to markdown losses. On the other hand, under-stocking leads to missed sales and stockouts.
+Retail businesses struggle to balance inventory levels with actual demand. Excess inventory increases **holding costs and cash tied up**, while inadequate stock leads to **missed sales opportunities**. Walmart’s operations require better insights into:
 
-This dashboard helps answer:
+- Inventory cost relative to sales performance
+- Store-level operational inefficiency
+- Safety stock effectiveness
+- Cost trends under inflationary pressures
 
-- Are we holding too much inventory relative to sales?
-- Which stores are most inefficient?
-- Where is safety stock misaligned with actual demand?
-- How have costs and sales trended over time?
-
----
-
-## 🎯 Key Features
-
-### 📊 Interactive Dashboard Pages
-- **Executive Summary:** Top-level KPIs for sales, costs, and efficiency metrics
-- **Trend Analysis:** Sales vs. Holding Cost over time
-- **Store Efficiency:** Bottom 5 stores by inventory efficiency
-- **Risk Detection:** Safety stock vs. weekly sales scatter
-- **Department & Forecast Analysis**
+This dashboard answers key strategic questions to support **data-driven inventory optimization**.
 
 ---
 
-## 🔍 Key Insights
+## 🎯 What This Dashboard Solves
 
-1. **Inventory Inefficiency:** Holding costs are growing faster than sales, suggesting excess stock accumulation.
-2. **Store Imbalance:** A small subset of stores contributes disproportionately to total holding costs and lower efficiency.
-3. **Safety Stock Misalignment:** High safety stock does not consistently correlate with higher weekly sales.
-4. **Growth Patterns:** Cost growth under inflationary conditions demonstrates pressure on margins.
+This solution enables Walmart (or similar retail businesses) to:
+
+1. Detect **inefficient inventory investment** relative to sales
+2. Identify **underperforming stores** with high cost burden
+3. Highlight safety stock levels that are misaligned with demand
+4. Evaluate how **holding costs trend against sales over time**
+5. Provide business insights that guide **rebalancing and forecasting strategies**
 
 ---
 
-## 📁 Repository Contents
+## 📊 Dashboard Features
+
+The Power BI report includes:
+
+### 🔑 KPIs
+- **Total Sales**
+- **Total Holding Cost**
+- **Inventory-to-Sales Ratio**
+- **Lowest Performing Store**
+
+### 📈 Trend & Comparison Visuals
+- **Sales vs. Holding Cost Over Time**
+- **Inventory Cost Distribution by Store**
+- **Weekly Sales Performance by Store**
+
+### 🔍 Diagnostic Analysis
+- **Safety Stock vs. Weekly Sales Scatter**
+- **Department-level inventory insights**
+
+---
+
+## 📌 Key Insights (Examples)
+
+- Inventory costs have been increasing faster than sales growth, indicating capital inefficiency.
+- A small group of stores contributes disproportionately to total holding costs.
+- High safety stock levels do not always result in proportionately high weekly sales, suggesting forecasting error.
+- Sales patterns under CPI inflation indicate shifts in demand that require adaptive planning.
+
+---
+
+## 🛠 Tools & Techniques Used
+
+| Tools / Skills | Description |
+| -------------- | ----------- |
+| **Power BI Desktop** | Report development & visualization |
+| **DAX** | Custom measures, ranking, conditional metrics |
+| **Dimensional Modeling** | Star schema design with fact & dimension tables |
+| **Business Analysis** | Interpreting performance & risk for inventory |
+
+---
+
+## 📁 Repository Structure
+walmart-inventory-optimization
+│
+├── README.md
+├── Walmart_Inventory_Dashboard.pbix ← Power BI source file
+└── Screenshots/
+└── dashboard_overview.png
+
+## 📈 Business Value
+
+This dashboard helps teams:
+
+- Reduce excess inventory costs
+- Improve forecasting accuracy
+- Prioritize operational improvements
+- Make decisions supported by data, not intuition
+
